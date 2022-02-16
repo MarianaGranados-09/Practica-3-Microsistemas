@@ -6,6 +6,7 @@
 #FUSES NOBROWNOUT
 #FUSES PLL1 
 #FUSES CPUDIV1
+#FUSES NOPROTECT
 
 #use delay(crystal=8MHz)
 
@@ -73,14 +74,14 @@ void main()
    
    //INTCON2
    //Bit 7 para pull-ups del puerto B
-   //Bit 6 para interrupcion externa 0 edge
-   //Bit 5 para interrupcion externa 1 edge
+   //Bit 6 para interrupcion externa 0 edge //Flanco de subida cambiar a 1
+   //Bit 5 para interrupcion externa 1 edge //Flanco de subida cambiar a 1
    //Bit 4 para interrupcion externa 2 edge
    //Bit 3 se lee como 0
    //Bit 2 para interrupcion con prioridad del TMR0
    //Bit 1 se lee como 0
    //Bit 0 para interrupcion con prioridad del puerto RB
-   INTCON2=0b00000000;
+   INTCON2=0b11000000;
    
    //INTCON3
    //Bit 7 para la interrupcion con prioridad del INT2 (1 PARA HIGH, 0 PARA LOW)
